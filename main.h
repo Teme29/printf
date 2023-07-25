@@ -1,4 +1,5 @@
 #ifndef MAIN_H
+<<<<<<< HEAD
 
 #define MAIN_H
 
@@ -220,3 +221,27 @@ long int convert_size_unsgnd(unsigned long int num, int size);
 
 
 #endif /* MAIN_H */
+=======
+#define MAIN_H
+#include <unistd.h>
+#include <sdlib.h>
+#include <stdarg.h>
+#define abs(val) ((val) < 0 ? -(val) : (val))
+/**
+ * struct - a structure for symbols and associated funs
+ * @list: makes a list of operator
+ * @fun: function pointer
+ */
+typedef struct
+{
+	char *list;
+	int (*fun)(val_list);
+}form_t;
+int maker(const char *format, form_t lists[], val_list arg_list);
+int _printf(const char *format, ...);
+int put_char(char c);
+int print_char(char *format, val_list);
+int print_string(char *format, val_list);
+int print_percent(char *format, val_list);
+#endif
+>>>>>>> 0108d23a45a4520482be366a035184adc4aa731b

@@ -1,43 +1,28 @@
 #include <stdio.h>
 
-int _printf(const char *format, ...);
-
-int main(void)
+int b_conversion_specifier(unsigned int value)
 {
-       	unsigned int value = 98;
+char buffer[32];
+int count = 0;
 
-        _printf("%b\n", value);
-
-  return 0;
+while (value > 0)
+{
+buffer[count++] = '0' + (value % 2);
+value >>= 1;
 }
 
-int _printf(const char *format, ...)
-{
-    va_list args;
-    int c;
+buffer[count] = '\0';
 
-    va_start(args, format);
-
-    while ((c = *format++) != '\0') {
-      if (c == '%') {
-      switch (*format++) {
-        case 'b':
-          {
-            unsigned int arg = va_arg(args, unsigned int);
-            _printf("%08b\n", arg);
-          }
-          break;
-        default:
-          _printf("%c", c);
-          break;
-      }
-    } else {
-      _printf("%c", c);
-    }
-  }
-
-  va_end(args);
-
-  return 0;
+return (count);
 }
+
+int main(void);
+{
+unsigned int value = 98;
+
+printf("%b\n", value);
+
+return (0);
+}
+
 
